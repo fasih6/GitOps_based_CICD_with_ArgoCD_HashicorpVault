@@ -1,0 +1,21 @@
+🚀 user-management has been deployed!
+
+Namespace: {{ .Values.namespace }}
+
+Components:
+  • Frontend  → http://frontend-svc:{{ .Values.frontend.port }}
+  • Backend   → http://backend-svc:{{ .Values.backend.port }}
+  • MySQL     → mysql:{{ .Values.mysql.port }}
+
+{{- if .Values.ingress.enabled }}
+Ingress hosts:
+  {{- range .Values.ingress.hosts }}
+  • https://{{ . }}
+  {{- end }}
+{{- end }}
+
+To upgrade the release:
+  helm upgrade {{ .Release.Name }} ./user-management-chart -n {{ .Values.namespace }}
+
+To uninstall:
+  helm uninstall {{ .Release.Name }} -n {{ .Values.namespace }}

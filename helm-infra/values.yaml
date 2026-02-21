@@ -1,0 +1,67 @@
+namespace: prod
+# ──────────────────────────────────────────
+# Backend
+# ──────────────────────────────────────────
+backend:
+  replicaCount: 3
+  image:
+    repository: fasih6/backend
+    tag: "1e2ffcf"
+    pullPolicy: IfNotPresent
+  port: 5000
+  resources:
+    requests:
+      memory: "256Mi"
+      cpu: "250m"
+    limits:
+      memory: "512Mi"
+      cpu: "500m"
+  prometheus:
+    scrape: "true"
+    port: "5000"
+    path: "/metrics"
+# ──────────────────────────────────────────
+# Frontend
+# ──────────────────────────────────────────
+frontend:
+  replicaCount: 3
+  image:
+    repository: fasih6/frontend
+    tag: "1e2ffcf"
+    pullPolicy: IfNotPresent
+  port: 80
+  resources:
+    requests:
+      memory: "128Mi"
+      cpu: "100m"
+    limits:
+      memory: "256Mi"
+      cpu: "200m"
+# ──────────────────────────────────────────
+# MySQL
+# ──────────────────────────────────────────
+mysql:
+  image:
+    repository: mysql
+    tag: "8"
+    pullPolicy: IfNotPresent
+  port: 3306
+  database: crud_app
+  storage:
+    storageClassName: ebs-sc
+    size: 5Gi
+# ──────────────────────────────────────────
+# Ingress
+# ──────────────────────────────────────────
+ingress:
+  enabled: true
+  className: nginx
+  hosts:
+    - fasih.site
+    - www.fasih.site
+  tls:
+    secretName: fasih6-co-tls
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
