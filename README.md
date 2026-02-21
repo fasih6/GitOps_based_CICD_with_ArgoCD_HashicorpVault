@@ -482,7 +482,7 @@ kubectl apply -f argocd-ingress.yaml
 
 ---
 
-## 7. ArgoCD Integration
+### ArgoCD Integration
 
 ### How ArgoCD Uses The Helm Chart
 
@@ -700,6 +700,7 @@ k8s-manifests/
 ---
 
 *This project demonstrates a production-grade DevSecOps pipeline with multi-layer security scanning, GitOps-driven deployments, and secrets management using HashiCorp Vault on AWS EKS.*
+
 
 
 
