@@ -383,7 +383,7 @@ In AWS Route 53, create CNAME records:
 ## 9. HashiCorp Vault + ESO
 
 
-[vault](hashicorp-vault-setup/README.md)
+[vault_setup](hashicorp-vault-setup/README.md)
 ---
 
 ## 10. ArgoCD Setup
@@ -482,7 +482,7 @@ kubectl apply -f argocd-ingress.yaml
 
 ---
 
-## 12. TLS with cert-manager
+## 11. TLS with cert-manager
 
 ### Install cert-manager
 
@@ -544,7 +544,7 @@ Once the Ingress resources exist (created by ArgoCD syncing the Helm chart), cer
 
 ---
 
-## 13. Verify End-to-End
+## 12. Verify End-to-End
 
 Run through this checklist after setup is complete.
 
@@ -635,7 +635,7 @@ Open `https://fasih.site` — you should see the frontend with a valid padlock (
 
 ---
 
-## 14. Repository Structure
+## 13. Repository Structure
 
 ### Application repo (`3-tier-NodejsApp-project`)
 
@@ -682,6 +682,7 @@ k8s-manifests/
 ---
 
 *This project demonstrates a production-grade DevSecOps pipeline with multi-layer security scanning, GitOps-driven deployments, and secrets management using HashiCorp Vault on AWS EKS.*
+
 
 
 
