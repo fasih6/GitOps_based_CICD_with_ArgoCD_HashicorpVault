@@ -1,10 +1,11 @@
 # GitOps based Continuous Delivery Plattform with ArgoCD and HashiCorp Vault
 
 Built a production-grade DevSecOps pipeline that automates the entire software delivery lifecycle with security baked in at every stage. The application is a full-stack Node.js user management system with a React frontend, Node.js REST API, and MySQL database deployed on AWS EKS using Kubernetes and Helm. Every code push triggers a Jenkins pipeline that runs secret scanning with Gitleaks, vulnerability scanning with Trivy, and static code analysis with SonarQube before building and pushing Docker images to Docker Hub. Image tags are automatically updated in a separate GitOps repository, which ArgoCD monitors to synchronize changes to the Kubernetes cluster within minutes. Secrets are managed using HashiCorp Vault integrated with the External Secrets Operator, ensuring no sensitive credentials ever touch Git. All endpoints are secured with TLS via cert-manager and Let's Encrypt, and MySQL data is persisted on AWS EBS volumes with a retain policy.
-\---
+
 ---
+
 A complete end-to-end guide for setting up the full DevSecOps pipeline including infrastructure, CI/CD, GitOps, secrets management, and TLS.
-\---
+
 
 ## Table of Contents
 
@@ -680,6 +681,7 @@ k8s-manifests/
 ---
 
 *This project demonstrates a production-grade DevSecOps pipeline with multi-layer security scanning, GitOps-driven deployments, and secrets management using HashiCorp Vault on AWS EKS.*
+
 
 
 
