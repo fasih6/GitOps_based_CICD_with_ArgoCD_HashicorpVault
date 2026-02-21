@@ -382,6 +382,7 @@ In AWS Route 53, create CNAME records:
 
 ## 9. HashiCorp Vault + ESO
 
+
 [vault](hashicorp-vault-setup/README.md)
 ---
 
@@ -634,7 +635,7 @@ Open `https://fasih.site` — you should see the frontend with a valid padlock (
 
 ---
 
-## 15. Repository Structure
+## 14. Repository Structure
 
 ### Application repo (`3-tier-NodejsApp-project`)
 
@@ -681,6 +682,7 @@ k8s-manifests/
 ---
 
 *This project demonstrates a production-grade DevSecOps pipeline with multi-layer security scanning, GitOps-driven deployments, and secrets management using HashiCorp Vault on AWS EKS.*
+
 
 
 
