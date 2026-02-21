@@ -680,3 +680,4 @@ k8s-manifests/
 
 *This project demonstrates a production-grade DevSecOps pipeline with multi-layer security scanning, GitOps-driven deployments, and secrets management using HashiCorp Vault on AWS EKS.*
 
+
