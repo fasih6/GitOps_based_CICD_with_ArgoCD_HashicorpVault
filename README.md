@@ -482,6 +482,24 @@ kubectl apply -f argocd-ingress.yaml
 
 ---
 
+## 7. ArgoCD Integration
+
+### How ArgoCD Uses The Helm Chart
+
+ArgoCD does **not** run `helm install` or `helm upgrade`. Instead it runs:
+
+```bash
+helm template three-tier-nodejs . -f values.yaml -n prod
+```
+
+It uses Helm purely as a **templating engine**, then applies the rendered manifests to the cluster itself. This means:
+
+- `helm list` will show nothing — ArgoCD owns the state, not Helm
+- Rollbacks are done by reverting a git commit, not `helm rollback`
+- Helm hooks (`post-install`, `pre-upgrade`) do not trigger
+
+---
+
 ## 11. TLS with cert-manager
 
 ### Install cert-manager
@@ -682,6 +700,7 @@ k8s-manifests/
 ---
 
 *This project demonstrates a production-grade DevSecOps pipeline with multi-layer security scanning, GitOps-driven deployments, and secrets management using HashiCorp Vault on AWS EKS.*
+
 
 
 
